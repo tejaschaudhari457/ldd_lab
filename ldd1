@@ -1,0 +1,82 @@
+1. Why does every connection to BB (BeagleBone) need booting?
+
+    Kya hai?: Jab hum BeagleBone (BB) jaise embedded systems ko power on karte hain ya reset karte hain, to system ko boot hona padta hai.
+    Kyun?: Booting ka process system ke hardware ko initialize karta hai aur operating system ko load karta hai. Jab tak system boot nahi hota, tab tak aapka OS (jaise Linux) functional nahi hota aur na hi aap devices ko access kar sakte ho.
+    BB me kyun?: BeagleBone jaise development boards me U-Boot ya bootloader hota hai jo system ke booting process ko manage karta hai. Ye process har bar start hota hai jab board ko power milta hai, tab bootloader kernel aur root filesystem ko load karta hai.
+
+2. Difference Between BB (BeagleBone) and BW (Black Walnut) Boards?
+
+    BB (BeagleBone):
+        BeagleBone ek open-source embedded development platform hai jo ARM Cortex-A8 processor par based hota hai. Ye mainly embedded systems development, IoT applications, aur hardware interfacing ke liye use hota hai.
+        Isme TI (Texas Instruments) ka processor hota hai aur kaafi I/O pins (GPIO, ADC, PWM, etc.) hote hain jo user ko external hardware ke saath interface karne ki facility dete hain.
+        Common Use Cases: Robotics, automation, sensors, custom peripherals.
+
+    BW (Black Walnut):
+        Ye ek custom embedded board ho sakta hai ya aapka referent specific product ho sakta hai. Black Walnut ek term ho sakta hai jo kisi specific embedded platform ko represent karta ho, jo apni specific configurations aur uses ke liye jaana jaata hai.
+        Isme aapko alag processor aur interface options mil sakte hain.
+
+    Difference:
+        Processor type, pin configuration, connectivity options, and available peripherals BB aur BW me difference karte hain. BB me ek open-source community support hai, jahan aapko extensive documentation aur tutorials milte hain. BW board specific commercial applications ke liye design kiya ja sakta hai.
+
+3. In BW, why is TTY not present and why is TTY wire cable needed in BB?
+
+    TTY (Teletypewriter):
+        TTY ek serial communication port hai jo terminal ke liye use hota hai. Iska use text input/output ke liye hota hai, jise hum console ke through access karte hain.
+    In BB (BeagleBone):
+        BeagleBone me TTY ports available hote hain jo direct serial communication ke liye use kiye jaate hain. Agar aapko serial console ke through debugging karna ho ya terminal access karna ho, to TTY cable (USB-to-serial converter ya TTL-to-USB cable) ki zaroorat padti hai.
+        TTY cable BB me serial communication ko enable karta hai, jo console logs ya kernel debugging ke liye kaafi useful hai.
+    In BW (Black Walnut):
+        Agar BW me TTY port nahi hai, to iska matlab ho sakta hai ki usme serial communication ka koi direct interface na ho. BW me ho sakta hai ki USB, Ethernet, ya Wi-Fi se communication ke options diye gaye ho, jo TTY ki jagah use kiye jaate ho.
+
+4. BW Board Information in Detail (Pin Configuration, Architecture, etc.)
+
+    Pin Configuration:
+        Isme GPIO pins, PWM outputs, ADC inputs, aur I2C/SPI interfaces ke liye pin configuration hota hai. BW board ki pinout aur hardware configuration aapko uske manual ya datasheet me milegi.
+        Power pins: Ye board ko power dene ke liye use hote hain (e.g., 3.3V, 5V, Ground).
+        Data pins: GPIO, UART, I2C, SPI, etc.
+
+    Architecture:
+        BW board ka architecture alag ho sakta hai, jaise ARM Cortex-M based processors, ya custom hardware. Architecture ko samajhne ke liye aapko board ke datasheet ya user manual ko refer karna padega.
+
+    Example Architecture: Agar BW ARM Cortex-M series processor use kar raha hai, to aapko ek 32-bit architecture milega, jisme aapko low power consumption aur high performance milta hai, jo embedded applications ke liye ideal hota hai.
+
+5. Difference Between mount and eject in Linux?
+
+    mount:
+        mount command ka use file systems ko mount karne ke liye hota hai. Jab aap external storage device (jaise USB, hard drive) ko system se connect karte hain, to usse mount karna zaroori hota hai.
+        Example: mount /dev/sdb1 /mnt/usb se /dev/sdb1 ko /mnt/usb directory pe mount kiya jaata hai.
+    eject:
+        eject command ka use external media devices ko safely remove karne ke liye hota hai. Jab aap USB ya CD-ROM ko safely remove karna chahte hain, to eject ka use kiya jaata hai.
+        Example: eject /dev/sdb se USB ko safely remove kiya jaata hai.
+
+6. Types of Errors in Linux and How to Solve Them?
+
+Linux me kai types ke errors ho sakte hain. Inhe kernel errors, application errors, device errors, etc., ke roop me classify kiya ja sakta hai.
+
+    Kernel Errors:
+        Segmentation faults: Ye kernel ke memory access errors hote hain. Isko solve karne ke liye debugging tools jaise gdb ka use kiya jaata hai.
+        OOPS: Jab kernel me koi unexpected error hota hai, to kernel panic ho sakti hai. dmesg ya /var/log/messages ko check karke error details pata ki ja sakti hai.
+
+    File System Errors:
+        Agar file system corrupt ho, to aap fsck (file system consistency check) ka use karte ho.
+        Example: fsck /dev/sda1 se file system ko repair kiya ja sakta hai.
+
+    Device Errors:
+        Agar device driver ya hardware failure ho, to dmesg me log messages check karne se help milti hai. Agar kernel module ya device driver crash ho raha ho, to us module ko insmod/rmmod se reload kiya ja sakta hai.
+
+7. Static vs Dynamic Model in LDD (Linux Device Driver)
+
+    Static Model:
+        Isme device driver ko compile karke kernel me statistically link kar diya jaata hai. Ye kernel boot hone pe automatically load ho jaata hai.
+        Example: Aap make menuconfig se module ko select karte ho aur kernel ke saath link karte ho.
+        Advantage: Fast boot time, because the driver is already loaded with the kernel.
+    Dynamic Model:
+        Isme kernel ke boot hone ke baad modules ko dynamically load kiya jaata hai. Aap insmod ya modprobe command ka use karte hain.
+        Example: modprobe <module_name> se module load kiya jaata hai.
+        Advantage: Flexibility, kyunki aap modules ko on-the-fly load/unload kar sakte ho bina system ko reboot kiye.
+
+Conclusion:
+
+Aap jo topics cover kar rahe ho wo embedded systems aur Linux device drivers se related hain. Yeh questions hardware interfaces, board configurations, file system management, aur kernel debugging se related hain. BeagleBone (BB) aur Black Walnut (BW) jaise boards ke differences, TTY communication, aur mount/eject commands ko samajhna embedded development ke liye zaroori hai. Aap jitna practical implementation karenge, utni hi aapki understanding clear hogi.
+
+Agar kisi point pe aapko aur detail chahiye ho, ya koi confusion ho, to bata sakte ho!

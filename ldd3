@@ -1,0 +1,257 @@
+1. Internal vs External Fragmentation
+
+    What:
+        Internal Fragmentation: Jab memory blocks allocate karte waqt thoda space bekar chhuta hai, matlab allocated space ka kuch hissa unused reh jata hai. Example: Agar aapne 100KB allocate kiya aur process ne sirf 70KB use kiya, toh 30KB ka space waste ho gaya.
+        External Fragmentation: Jab total available memory toh sufficient ho, lekin memory ke beech chhoti-chhoti gaps ho, jisme koi process fit nahi ho sakta.
+
+    Why:
+        Internal Fragmentation: Iska hona mainly memory allocation ke granular size pe depend karta hai.
+        External Fragmentation: Jab continuous memory blocks chahiye hote hain lekin free memory fragmented ho jaati hai, toh processes ko efficiently allocate nahi kiya ja sakta.
+
+    Use:
+    Internal: Memory management algorithms (e.g., fixed partitioning) ko consider karte waqt.
+    External: Dynamic memory allocation schemes me, jahan memory scatter hoti hai.
+
+2. Page Fault
+
+    What:
+    Jab ek program memory access karta hai aur required page main memory mein nahi hota, toh page fault hota hai. OS ko page ko swap karne ki zarurat hoti hai.
+
+    Why:
+    Ye virtual memory system ka part hai. Jab CPU ko data ki zarurat hoti hai jo physical memory mein nahi hota, OS page fault handle karta hai.
+
+    Use:
+    Virtual memory ka use karte waqt page fault hota hai, aur OS ko page ko swap karne ki zarurat hoti hai.
+
+3. Swap Space
+
+    What:
+    Swap space wo part hota hai physical storage ka (jaise hard drive ya SSD) jo virtual memory ke liye use hota hai jab RAM full ho jaata hai.
+
+    Why:
+    Jab system ke paas sufficient physical memory nahi hoti, toh OS swap space ko use karta hai temporary data store karne ke liye.
+
+    Use:
+    Jab system high memory usage ke saath kaam kar raha ho, aur RAM full ho gayi ho, swap space ka use kiya jata hai.
+
+4. Relay Works in OS
+
+    What:
+    Relay ka use communication aur signal processing me hota hai. OS me relay ka role data transmission aur interrupt handling me hota hai.
+
+    Why:
+    Relay signals ko correct destination tak efficiently transfer karte hain.
+
+    Use:
+    Mostly embedded systems aur network devices me, jab data ko relay aur route karna ho.
+
+5. OS vs RTOS
+
+    What:
+        OS: General-purpose operating systems, jaise Linux ya Windows, jo broad range of tasks handle karte hain.
+        RTOS (Real-Time Operating System): Aise systems jo real-time tasks ko prioritize karte hain, jaise embedded systems.
+
+    Why:
+    RTOS critical applications jaise robotics, industrial control systems, aur medical devices ke liye essential hai, jahan response time ek critical factor hota hai.
+
+    Use:
+    OS: General computing tasks ke liye.
+    RTOS: Time-sensitive aur mission-critical tasks ke liye.
+
+6. Epochs in OS
+
+    What:
+    Epoch ek system clock ka reference point hota hai. Operating system me, epochs time tracking ke liye use hoti hain, jahan time measurement ka baseline set hota hai.
+
+    Why:
+    Time synchronization aur accurate timestamping ke liye epochs ka use kiya jaata hai.
+
+    Use:
+    Mostly high precision timekeeping me, jahan system ko exact time measurement chahiye hoti hai.
+
+7. TS Scheduling (Time-sharing Scheduling)
+
+    What:
+    Time-sharing scheduling ek CPU scheduling technique hai jisme CPU time ek fixed time slice me processes ko allocate kiya jata hai.
+
+    Why:
+    Ye scheduling method fairness aur responsiveness ke liye use hoti hai, taaki multiple users efficiently ek system ko use kar sakein.
+
+    Use:
+    Multi-user aur multi-tasking environments mein, jaise servers ya desktops.
+
+8. Suspended vs Stopped (Technical Difference)
+
+    What:
+        Suspended: Process temporarily stop ho jata hai, lekin uska state memory mein preserved hota hai aur kabhi bhi resume ho sakta hai.
+        Stopped: Process ko permanent roop se stop kar diya gaya hai.
+
+    Why:
+    Suspended: Jab resource allocation ya time-sharing ke liye temporary pause karte hain.
+    Stopped: Jab process ko completely terminate karna ho.
+
+    Use:
+    Suspended: Background tasks aur resource management ke liye.
+    Stopped: Process ko terminate ya debug karte waqt.
+
+9. Exit Status
+
+    What:
+    Jab ek process complete ho jata hai, toh OS uska exit status return karta hai, jo bataata hai ki process successfully execute hua ya nahi.
+
+    Why:
+    Exit status se program execution ka result pata chalta hai, jise further processing ya error handling ke liye use kiya jaata hai.
+
+    Use:
+    Bash scripting aur process management me, jahan status ke basis pe actions decide karte hain.
+
+10. Pause
+
+    What:
+    pause() ek system call hota hai jo process ko suspend karta hai jab tak koi signal nahi milta.
+
+    Why:
+    Ye signal handling ke liye use hota hai, jaise ki process ko pause karna aur wait karna for an event or signal.
+
+    Use:
+    Inter-process communication aur synchronization me, jab aap process ko temporarily hold karna chahte ho.
+
+11. Code Burn
+
+    What:
+    Code burn ka matlab hai software ya firmware ko permanently ek device ke memory me likhna (usually ROM ya Flash memory).
+
+    Why:
+    Ye process embedded systems me hota hai, jahan code ko permanently store kiya jaata hai.
+
+    Use:
+    Firmware update ya initial programming ke liye, jahan code ek non-volatile memory device me store hota hai.
+
+12. Volatile
+
+    What:
+    Volatile memory wo memory hoti hai jo power off hone par data lose kar deti hai, jaise RAM.
+
+    Why:
+    Ye fast access ke liye hoti hai lekin temporary storage hoti hai.
+
+    Use:
+    Main memory (RAM) mein data store karte waqt.
+
+13. Across Memory (Memory Access)
+
+    What:
+    Across memory ka matlab hai ek address space ke across data ko access karna, jo physical memory ke different locations pe ho sakta hai.
+
+    Why:
+    Ye virtual memory systems me hota hai, jab OS memory ko efficiently manage karta hai.
+
+    Use:
+    Cross-memory access ka use virtualization aur memory management me hota hai.
+
+14. Rendering Memory in Video
+
+    What:
+    Rendering memory wo memory hai jo graphical data ko process aur display karne ke liye video hardware (GPU) use karti hai.
+
+    Why:
+    Ye large amount of graphical data ko efficiently render karne ke liye use hoti hai.
+
+    Use:
+    High-end gaming, video editing, aur graphical applications mein.
+
+15. Embedded Absolute vs Relative Concept
+
+    What:
+        Absolute Addressing: Memory locations ko fixed address ke roop mein specify karna.
+        Relative Addressing: Memory location ko ek base address se relative reference ke roop mein specify karna.
+
+    Why:
+    Absolute: Zyada predictable hota hai, lekin less flexible.
+    Relative: Flexible hota hai aur memory layout ko adjust karne mein madad karta hai.
+
+    Use:
+    Embedded systems me, relative addressing use hota hai, jab memory layouts frequently change hote hain.
+
+16. TID, PID, PPID
+
+    What:
+        TID: Thread ID, unique identifier for threads in a process.
+        PID: Process ID, unique identifier for processes.
+        PPID: Parent Process ID, jo process ne kisi dusre process ko spawn kiya hai.
+
+    Why:
+    Ye IDs process aur threads ko manage karne aur unke relationships ko track karne ke liye hoti hain.
+
+    Use:
+    Process aur thread management ke liye, jaise process creation, scheduling aur termination ke waqt.
+
+17. UEFI vs BIOS
+
+    What:
+        UEFI: Unified Extensible Firmware Interface, modern firmware standard hai jo BIOS ka replacement hai.
+        BIOS: Basic Input/Output System, purana firmware interface.
+
+    Why:
+    UEFI zyada modern aur flexible hai, aur it supports larger drives aur faster boot times. BIOS old systems me hota hai.
+
+    Use:
+    UEFI modern systems me, aur BIOS legacy systems me.
+
+18. Swap Instruction
+
+    What:
+    Swap instruction wo command hota hai jo data ko main memory aur secondary memory (swap space) ke beech swap karta hai.
+
+    Why:
+    Jab system me memory ki shortage ho, toh swap instruction ka use hota hai temporary storage ko manage karne ke liye.
+
+    Use:
+    Memory management me, jab system ko RAM ka efficient use karna ho.
+
+19. Spinlock
+
+    What:
+    Spinlock ek synchronization mechanism hota hai jisme thread continuously lock acquire karne ki koshish karta hai without yielding CPU.
+
+    Why:
+    Ye ek simple aur efficient locking technique hoti hai jab expected wait time bahut kam ho.
+
+    Use:
+    Embedded systems aur real-time systems me, jab high-performance locking chahiye hota hai.
+
+20. CMP (Compare and Swap)
+
+    What:
+    CMP ek atomic instruction hai jo do values ko compare karta hai aur agar dono match karte hain, toh ek new value set karta hai.
+
+    Why:
+    Ye atomic operation race conditions ko avoid karta hai.
+
+    Use:
+    Multi-threaded environments me, jab aapko shared resources ke safe access ki zarurat ho.
+
+21. Atomic vs Non-Atomic Operations
+
+    What:
+        Atomic Operation: Operation jo completely execute hota hai bina interrupt ke.
+        Non-Atomic Operation: Operation jo partial execution ke dauran interrupt ho sakta hai.
+
+    Why:
+    Atomic operations consistency aur integrity ensure karte hain, especially in multi-threaded environments.
+
+    Use:
+    Atomic operations critical section synchronization me use hote hain.
+
+22. Interrupted vs Disabling Interrupts in OS
+
+    What:
+        Interrupted: Jab running process ko temporarily stop kiya jata hai kisi higher-priority process ke liye.
+        Disabling Interrupts: Jab CPU interrupts ko completely disable kar deta hai, taaki process execution uninterrupted ho.
+
+    Why:
+    Interrupted: High-priority tasks ko handle karne ke liye.
+    Disabling Interrupts: Critical sections me race conditions avoid karne ke liye.
+
+    Use:
+    Interrupted: Real-time systems me, disabling interrupts: OS kernel code me.

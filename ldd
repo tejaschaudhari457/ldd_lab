@@ -1,0 +1,148 @@
+ Linux device drivers and embedded systems.
+1. .ko file (Kernel Object File)
+
+    Kya hai?: .ko ek compiled kernel module hota hai. Jab hum apne device drivers ko compile karte hain, to jo file banti hai, wo .ko file hoti hai.
+    Kahan use hota hai?: Ye file kernel me load ki jaati hai jisse hum apne system ki functionality extend kar sakte hain bina poora kernel recompile kiye. Jaise device driver add karna ho ya kisi naye hardware ko support dena ho.
+
+2. Kernel Module
+
+    Kya hai?: Kernel module ek piece of code hota hai jo kernel ki functionality ko extend karta hai. Agar apne system ko naye features dene hain to modules ko load kiya jaata hai.
+    Kahan use hota hai?: Ye embedded systems, servers, ya kisi bhi Linux-based system me use hota hai jahan humko specific hardware ya features ki zaroorat ho.
+
+3. TFTP (Trivial File Transfer Protocol)
+
+    Kya hai?: Ye ek simple file transfer protocol hai jo files ko network ke through transfer karta hai.
+    Kahan use hota hai?: Embedded systems me, jab system ko remotely boot karna hota hai ya kernel ko network ke through load karna hota hai. Jaise booting ke time kernel image ko TFTP server se load kiya jaata hai.
+
+4. DTB (Device Tree Blob)
+
+    Kya hai?: Device tree ek tarah se hardware ka description hota hai jo kernel ko batata hai ki system me kaunsa hardware installed hai. DTB uska binary format hota hai.
+    Kahan use hota hai?: Embedded systems me ye file boot ke time kernel ko hardware information dene ke liye use hoti hai.
+
+5. RootFS (Root File System)
+
+    Kya hai?: Ye system ka main file system hota hai. Isme sari directories aur files hoti hain jo system chalane ke liye zaroori hoti hain, jaise /bin, /lib, /etc etc.
+    Kahan use hota hai?: Jab system boot hota hai to root file system mount hota hai jisse system ka basic structure set hota hai.
+
+6. /dev, /opt
+
+    Kya hai?:
+        /dev: Ye directory system ke devices ko represent karti hai. Jaise hard disk, serial ports, etc.
+        /opt: Ye directory extra software packages ke liye hoti hai. Agar aapne third-party software install kiya hai to wo yahan milega.
+    Kahan use hota hai?: /dev device management ke liye aur /opt third-party software ko store karne ke liye.
+
+7. NFS Server (Network File System)
+
+    Kya hai?: Ye ek protocol hai jisse ek system apni file system ko network pe dusre systems ke saath share karta hai.
+    Kahan use hota hai?: Agar aapke paas multiple systems hain aur aap chahte hain ki ek system ke files doosre systems pe accessible ho, to NFS server use hota hai.
+
+8. uEnv file (Universal Environment File)
+
+    Kya hai?: Ye bootloader (jaise U-Boot) ko configuration deta hai jaise ki kernel location, root filesystem location, etc.
+    Kahan use hota hai?: Embedded systems me, jab system boot hota hai to uEnv file bootloader ko environment variables set karne me madad karti hai.
+
+9. DBT (Device Tree Blob)
+
+    Kya hai?: Ye binary format hai device tree ka, jisse kernel ko hardware information milti hai.
+    Kahan use hota hai?: Ye bhi embedded systems me use hota hai jaise ki device ko boot karte waqt kernel ko hardware ka pata chal sake.
+
+10. insmod, rmmod
+
+    Kya hai?:
+        insmod: Ye command ek kernel module ko system me load karne ke liye hoti hai.
+        rmmod: Ye command module ko system se remove karne ke liye hoti hai.
+    Kahan use hota hai?: Agar aapko kisi specific driver ya functionality ki zaroorat ho, to insmod se module load kar sakte hain, aur rmmod se remove kar sakte hain.
+
+11. vmalloc
+
+    Kya hai?: Ye ek kernel function hai jo virtual memory ko allocate karta hai. Jab kernel ko dynamic memory ki zaroorat hoti hai to vmalloc ka use hota hai.
+    Kahan use hota hai?: Kernel space me memory allocation ke liye.
+
+12. dmesg
+
+    Kya hai?: Ye command system ke kernel messages ko display karti hai. Jab system boot hota hai ya koi error hota hai to dmesg logs me save ho jaata hai.
+    Kahan use hota hai?: System ko troubleshoot karte waqt ya kernel errors check karte waqt.
+
+13. pwd
+
+    Kya hai?: Ye command current working directory ko print karne ke liye hoti hai.
+    Kahan use hota hai?: Jab aap terminal me kaam kar rahe ho aur dekhna ho ki abhi aap kis directory me ho.
+
+14. proc File System
+
+    Kya hai?: Ye ek virtual file system hai jo kernel aur system ke processes ke baare me information provide karta hai. Jaise CPU info, memory info, etc.
+    Kahan use hota hai?: Debugging ke liye, system information ke liye.
+
+15. kallsyms
+
+    Kya hai?: Ye kernel ka symbol table hota hai, jo kernel ke addresses ko human-readable names me map karta hai.
+    Kahan use hota hai?: Debugging aur kernel code ko samajhne ke liye.
+
+16. printk
+
+    Kya hai?: Ye ek function hai jo kernel me log messages print karta hai. Ye printf jaisa kaam karta hai par ye kernel space me hota hai.
+    Kahan use hota hai?: Kernel ke andar debug messages print karne ke liye.
+
+17. modprobe
+
+    Kya hai?: Ye command kernel modules ko load ya unload karti hai. Isme dependencies ko bhi manage kiya jaata hai.
+    Kahan use hota hai?: Kernel module management me.
+
+18. uname -r, uname -v
+
+    Kya hai?:
+        uname -r: Ye command kernel version ko show karti hai.
+        uname -v: Ye kernel ke build information ko show karti hai.
+    Kahan use hota hai?: System ka kernel version check karte waqt.
+
+19. VFS Layer (Virtual File System)
+
+    Kya hai?: VFS Linux ka ek abstraction layer hai jo file systems ko handle karta hai. Ye alag-alag file systems (jaise ext4, NFS, etc.) ko ek uniform interface deta hai.
+    Kahan use hota hai?: File system operations me.
+
+20. systemctl
+
+    Kya hai?: Ye command systemd ke through services ko manage karne ke liye use hoti hai.
+    Kahan use hota hai?: Services ko start, stop, ya manage karte waqt.
+
+21. tty0, ttyUSB0
+
+    Kya hai?:
+        tty0: Ye system ka primary terminal hota hai, jo usually console ke liye hota hai.
+        ttyUSB0: Ye USB serial port device ko represent karta hai.
+    Kahan use hota hai?: Terminal device ko manage karte waqt.
+
+22. nmcli
+
+    Kya hai?: Ye NetworkManager ka command-line interface hai, jisse aap network connections ko manage kar sakte hain.
+    Kahan use hota hai?: Network settings ko manage karne ke liye.
+
+23. Bootloader and its types
+
+    Kya hai?: Bootloader wo software hai jo system ke boot hone pe kernel ko load karta hai. Jaise GRUB, U-Boot, LILO, etc.
+    Kahan use hota hai?: Sabhi Linux systems me bootloader use hota hai, embedded systems me U-Boot kaafi common hai.
+
+24. Kernel Booting Process
+
+    Kya hai?: Booting me bootloader pehle kernel ko load karta hai, phir kernel hardware ko initialize karta hai aur root filesystem mount karta hai.
+    Kahan use hota hai?: Ye har Linux-based system me hota hai, embedded systems me bhi.
+
+25. scp, ssh
+
+    Kya hai?:
+        scp: Ye secure file transfer protocol hai jo SSH ke through file transfer karta hai.
+        ssh: Ye remote system pe login karne ke liye use hota hai.
+    Kahan use hota hai?: Remote administration ke liye.
+
+26. echo, chmod
+
+    Kya hai?:
+        echo: Ye command output display karne ke liye use hoti hai.
+        chmod: Ye command file permissions change karne ke liye hoti hai.
+    Kahan use hota hai?: File management ke liye.
+
+Conclusion:
+
+Ye sab concepts Linux kernel, device drivers, aur embedded systems ke core parts hain. Agar aap device drivers seekh rahe ho to ye terms bohot important hain. Jaise kernel modules ko samajhna, device tree ka use, bootloaders ke kaam ko samajhna, aur file systems ko manage karna.
+
+Aapko ye sab concepts thoda detailed manner me samajhna hoga, aur practice karni hogi taaki aapke understanding clear ho. Agar kisi bhi topic pe zyada clarification chahiye ho to zaroor bataye!

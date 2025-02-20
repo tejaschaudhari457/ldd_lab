@@ -1,0 +1,200 @@
+1. Static vs Dynamic Model (in Kernel/Device Drivers)
+
+    What:
+        Static Model: Yaha, aap kernel code ko compile time pe configure karte ho. Matlab, driver ko source code ke roop mein compile karke load kiya jata hai.
+        Dynamic Model: Isme aap driver ko run-time pe load karte ho, bina system reboot kiye. Kernel modules ko load/unload kar sakte hain.
+
+    Why:
+        Static: System boot ke time pe fixed configuration hota hai. Performance thoda better ho sakta hai.
+        Dynamic: Flexibility milti hai. Jab zarurat ho, tab driver ko load/unload kiya ja sakta hai bina system reboot kiye.
+
+    Use:
+        Static: Jab aapko pata ho ki driver hamesha required rahega, aur aapko boot time pe saare modules ka zarurat ho.
+        Dynamic: Jab aapko flexibility chahiye, aur driver ko dynamically load/unload karna ho.
+
+2. Kernel Image
+
+    What:
+    Kernel image wo compiled file hota hai jo aapka operating system ka core part hota hai. Ye vmlinuz ke naam se bhi jaana jaata hai.
+
+    Why:
+    Kernel image ko boot loader ke through load kiya jaata hai system ke startup pe. Isme system ke saare necessary functions aur device drivers hote hain.
+
+    Use:
+    Ye image file boot process me load hoti hai, aur system ko operate karne ke liye zaruri hota hai.
+
+3. Overwritten (in Context of Kernel/Driver)
+
+    What:
+    Jab ek file ya code block ko naye data se replace kiya jaata hai, to usko overwrite karna kehte hain. Yani jo purana data tha wo naya data overwrite kar leta hai.
+
+    Why:
+    Overwriting ka use mostly configurations ko update karne ke liye hota hai, jise aap apne system ko naye features ya fixes dene ke liye karte hain.
+
+    Use:
+    Jab aapko system ki settings ya kernel ko update karna ho, ya fir code ko modify karte ho to overwrite hota hai.
+
+4. Booting vs Bootstrap
+
+    What:
+        Booting: System ke start hone ki process, jab hardware ko initialize kiya jaata hai aur operating system ko load kiya jaata hai.
+        Bootstrap: Booting process ka ek initial stage hota hai, jisme chhoti si program (bootstrap loader) system ko boot karne ke liye trigger karti hai.
+
+    Why:
+    Bootstrap ek basic program hota hai jo system ke boot process ko start karta hai, aur fir operating system ka core load karta hai.
+
+    Use:
+    Booting process ke through system ko start karte hain, aur bootstrap loader is process ki starting stage hai.
+
+5. GRUB (Grand Unified Bootloader)
+
+    What:
+    GRUB ek bootloader hota hai jo multiple operating systems ke beech choose karne ka option deta hai. Aapke system me agar Linux aur Windows dono installed hain, to GRUB dono ke beech choose karne ka option dega.
+
+    Why:
+    GRUB aapko ek flexible boot process provide karta hai. Multiple OS ke options ko manage karta hai aur aapko system ke boot time pe choice de deta hai.
+
+    Use:
+    Agar aapke system me multiple OS hain, to GRUB zaroori hota hai.
+
+6. Why We Use sudo Before Command
+
+    What:
+    sudo ka matlab hai "Superuser Do". Jab aapko administrator (root) privileges chahiye hoti hain kisi command ko execute karne ke liye, to aap sudo use karte hain.
+
+    Why:
+    sudo aapko root privileges deta hai bina aapko root user account me login kiye. Ye security reason ke liye bhi zaroori hai, taki koi bhi accidental system changes na ho.
+
+    Use:
+    Jab aapko administrative tasks, jaise file permissions ya system settings change karne ho.
+
+7. GCC Inside and Work (GCC Compiler)
+
+    What:
+    GCC (GNU Compiler Collection) ek compiler hai jo C, C++, Fortran, aur dusre programming languages ko machine code me translate karta hai.
+
+    Why:
+    GCC open-source hai aur ye cross-platform hai, matlab aap isse kisi bhi architecture pe use kar sakte hain.
+
+    Use:
+    Jab aapko code likhna ho aur usko machine-readable language me compile karna ho, to aap GCC ka use karte hain.
+
+8. Shell is Interactive During Process
+
+    What:
+    Jab shell "interactive" mode me hota hai, to user directly commands enter kar sakta hai aur system se output receive kar sakta hai.
+
+    Why:
+    Ye tab hota hai jab aap apne terminal ko directly use kar rahe hote hain, aur aapko immediate feedback chahiye hota hai.
+
+    Use:
+    Shell ka interactive mode mostly daily tasks aur debugging ke liye use hota hai.
+
+9. SSH (Secure Shell)
+
+    What:
+    SSH ek protocol hai jiska use remote systems ko securely access karne ke liye hota hai. SSH encryption use karta hai, taaki communication secure rahe.
+
+    Why:
+    Ye remote administration aur file transfer ke liye safe aur secure method provide karta hai.
+
+    Use:
+    Agar aapko remote server ya machine ko secure tarike se access karna ho, to SSH ka use karte hain.
+
+10. Bash vs Sh (Bash Shell and Sh Shell)
+
+    What:
+        Bash: Bash ek advanced shell hai jo sh ka evolution hai. Isme extra features jaise tab-completion, command history, aur scripting ke liye advanced functionalities hoti hain.
+        Sh: Ye ek basic shell hai, jo older Unix systems me use hota tha.
+
+    Why:
+    Bash zyada features aur compatibility offer karta hai modern Linux systems ke liye, isliye wo zyada popular hai.
+
+    Use:
+    Agar aapko modern Linux features chahiye ya scripting karni hai, to Bash ka use karo. Sh simple tasks ke liye kaafi hota hai.
+
+11. Terminator (Terminal Emulator)
+
+    What:
+    Terminator ek terminal emulator hai jo aapko multiple terminal windows ek hi screen pe open karne ki facility deta hai.
+
+    Why:
+    Jab aapko ek hi time pe multiple processes ko monitor karna ho, to Terminator helpful hota hai.
+
+    Use:
+    Agar aapko multitasking karni ho aur ek terminal se zyada windows ko handle karna ho.
+
+12. Dispatching in OS
+
+    What:
+    Dispatching OS ke process scheduler ka ek part hota hai. Jab CPU time allocate hota hai, to process dispatch hota hai execution ke liye.
+
+    Why:
+    Ye OS ko efficiently processes ko manage karne mein help karta hai, taki CPU resources ka efficient utilization ho.
+
+    Use:
+    Dispatching scheduling ke time pe hota hai, jab OS processes ko CPU pe execute karne ke liye allocate karta hai.
+
+13. Read, Running, Waiting, Suspended, Stopping (Process States)
+
+    What:
+    Ye OS ke process states hain.
+        Running: Process CPU use kar raha hai.
+        Waiting: Process kisi resource (jaise I/O) ke liye wait kar raha hai.
+        Suspended: Process ko temporarily pause kar diya gaya hai.
+        Stopped: Process ko permanently stop kiya gaya hai.
+
+    Why:
+    Ye states OS ko process ko efficiently manage karne mein help karte hain, taaki resources ka proper allocation ho.
+
+    Use:
+    Process states ko track karne se OS ka resource management aur multitasking efficient hota hai.
+
+14. GCC vs GDB (Debugging)
+
+    What:
+        GCC: Ye compiler hai jo code ko machine language me translate karta hai.
+        GDB: Ye debugger hai jo aapko code me bugs find karne aur fix karne mein madad karta hai.
+
+    Why:
+        GCC: Jab aapko code compile karna ho.
+        GDB: Jab aapko running program me issues diagnose karne ho.
+
+    Use:
+    GCC ka use compile karne ke liye hota hai, aur GDB ka use code ko step-by-step execute karke debug karne ke liye hota hai.
+
+15. PSP (Processor State Pointer)
+
+    What:
+    PSP processor state pointer hota hai jo processor ke current state ko point karta hai. Ye important hai context switching me.
+
+    Why:
+    Ye context switching ke dauran processor state ko save aur restore karne mein madad karta hai.
+
+    Use:
+    Ye real-time systems ya embedded systems me zyada use hota hai.
+
+16. POSIX (Portable Operating System Interface)
+
+    What:
+    POSIX ek standard hai jo Unix-based systems ke liye interface define karta hai, taki portability aur compatibility maintain rahe.
+
+    Why:
+    POSIX se alag-alag operating systems ke beech code ko easily transfer kiya ja sakta hai.
+
+    Use:
+    Agar aapko cross-platform software development karna ho, to POSIX standards ka follow karna zaroori hota hai.
+
+17. MPU vs MMU (Memory Protection Unit vs Memory Management Unit)
+
+    What:
+        MPU: Ye hardware unit hai jo memory access ko protect karta hai.
+        MMU: Ye memory management unit hai jo virtual memory ko physical memory se map karta hai aur address translation karta hai.
+
+    Why:
+        MPU: Basic protection ke liye hota hai, jaise certain regions of memory ko protect karna.
+        MMU: Complex memory management tasks ke liye hota hai, jaise virtual memory aur address mapping.
+
+    Use:
+        MPU: Embedded systems me, jahan memory protection zaroori ho.
+        MMU: Advanced operating systems me, jahan virtual memory ka use hota ho.
